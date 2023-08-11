@@ -13,7 +13,7 @@ This is a demo app in which you can search for any character of the show Rick an
 </p>
 </br>
 
-<img src="/previews/preview.gif" align="right" width="320"/>
+<img src="/preview/preview.gif" align="right" width="320"/>
 
 ## Tech stack
 - Minimum SDK level 24
