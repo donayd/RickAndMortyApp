@@ -22,7 +22,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -53,6 +52,8 @@ import com.zara.rickandmorty.ui.theme.blue
 import com.zara.rickandmorty.utils.Resource
 import com.zara.rickandmorty.utils.parseGenderToColor
 import com.zara.rickandmorty.utils.parseGenderToIcon
+import com.zara.rickandmorty.utils.parseSpeciesToColor
+import com.zara.rickandmorty.utils.parseSpeciesToIcon
 import com.zara.rickandmorty.utils.parseStatusToColor
 import com.zara.rickandmorty.utils.parseStatusToIcon
 
@@ -187,6 +188,7 @@ fun CharacterDetailSection(
         modifier = modifier
             .fillMaxSize()
             .offset(y = 120.dp)
+            .padding(bottom = 100.dp)
             .verticalScroll(scrollState)
     ) {
         Text(
@@ -225,13 +227,13 @@ fun CharacterCharacteristics(
         bgColor = when (type) {
             "Gender:" -> parseGenderToColor(value)
             "Status:" -> parseStatusToColor(value)
-            "Species:" -> MaterialTheme.colorScheme.primary
+            "Species:" -> parseSpeciesToColor(value)
             else -> MaterialTheme.colorScheme.surface
         },
         icon = when (type) {
             "Gender:" -> parseGenderToIcon(value)
             "Status:" -> parseStatusToIcon(value)
-            "Species:" -> Icons.Default.Person
+            "Species:" -> parseSpeciesToIcon(value)
             else -> Icons.Default.Home
         }
     )
